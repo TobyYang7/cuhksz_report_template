@@ -49,18 +49,6 @@
 \setlength{\parindent}{0pt}
 
 %----------------------------------------------------------------------------------------
-%	HEADER AND FOOTER
-%----------------------------------------------------------------------------------------
-
-\fancypagestyle{mypagestyle}{
-    \fancyhf{}
-    \fancyhead[L]{\small Assignment2 Report}
-    \fancyhead[R]{\small 121090684}
-    \fancyfoot[C]{\thepage} % Add this line to include page numbers at the center of the footer
-    \renewcommand{\headrulewidth}{1pt}
-}
-
-%----------------------------------------------------------------------------------------
 %	COVER
 %----------------------------------------------------------------------------------------
 
@@ -71,6 +59,7 @@
     \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
     \center
+    \vspace*{1.5cm}
 
     %----------------------------------------------------------------------------------------
     %	HEADING SECTIONS
@@ -80,17 +69,17 @@
     \textsc{\large The Chinese University of Hong Kong, Shenzhen}\\[1.5cm]
 
     %course code
-    \textsc{\Large CSC3150}\\[0.5cm]
+    \textsc{\Large Course Code}\\[0.5cm]
 
     %course name
-    \textsc{\large Operating System}\\[0.5cm]
+    \textsc{\large Course Name}\\[0.5cm]
 
     %----------------------------------------------------------------------------------------
     %	TITLE SECTION
     %----------------------------------------------------------------------------------------
 
     \HRule \\[0.4cm]
-    { \huge \bfseries Assignment2 Report}
+    { \huge \bfseries Your Title}
     \HRule \\[1.5cm]
 
     %----------------------------------------------------------------------------------------
@@ -99,8 +88,8 @@
 
     \begin{minipage}{0.4\textwidth}
         \begin{tabular}{l l}
-            \emph{Author:\quad}     & Yuzhe Yang \\
-            \emph{Student ID:\quad} & 121090684  \\
+            \emph{Author:\quad}     & Your Name       \\
+            \emph{Student ID:\quad} & Your Student ID \\
         \end{tabular}
 
     \end{minipage}\\[2cm]
@@ -120,6 +109,21 @@
 
 \tableofcontents
 \newpage
+
+%----------------------------------------------------------------------------------------
+%	HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+
+\fancypagestyle{mypagestyle}{
+    \fancyhf{}
+    \fancyhead[L]{\small Your Title}
+    \fancyhead[R]{\small Your Student ID}
+    \fancyfoot[C]{\thepage} % Add this line to include page numbers at the center of the footer
+    \renewcommand{\headrulewidth}{1pt}
+}
+
+% Apply custom page style
+\pagestyle{mypagestyle}
 
 %----------------------------------------------------------------------------------------
 %	MAIN BODY
