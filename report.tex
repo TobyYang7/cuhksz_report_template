@@ -12,7 +12,7 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{listings}
 \usepackage{xcolor}
-\usepackage{tikz}
+\usepackage{tikz} \usetikzlibrary{shapes,arrows,positioning, arrows.meta}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{tocloft}
@@ -55,7 +55,7 @@
 \titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{1em}{}
 \setlength{\parindent}{0pt}
 
-% Set line spacing
+% Define line spacing
 \setstretch{1}
 
 %----------------------------------------------------------------------------------------
@@ -246,13 +246,36 @@ This is an example graph:
     \caption{Example table}
 \end{table}
 
-\begin{lstlisting}[language=C++, caption=Example C++ code]
-    #include <stdio.h>
+\subsection{Program Framework}
+This is an example graph of program framework:
+\begin{center}
+    \begin{tikzpicture}[node distance=1.5cm, >={Stealth[length=2mm]}][h]
 
-    int main() {
-        printf("Hello, world!\n");
-        return 0;
-    }
-\end{lstlisting}
+        \node (start) [draw, rectangle] {Start};
+        \node (init) [draw, rectangle, below of=start] {Initialize Game};
+        \node (create) [draw, rectangle, below of=init] {Create Threads};
+        \node (game) [draw, rectangle, below of=create] {Game Loop};
+        \node (win) [draw, rectangle, below of=game] {Win/Lose/Quit};
+        \node (end) [draw, rectangle, below of=win] {End};
+
+        \node (log) [draw, rectangle, right of=create, xshift=3cm] {Log Thread};
+        \node (frog) [draw, rectangle, below of=log] {Frog Thread};
+
+        \draw [->] (start) -- (init);
+        \draw [->] (init) -- (create);
+        \draw [->] (create) -- (game);
+        \draw [->] (game) -- (win);
+        \draw [->] (win) -- (end);
+
+        \draw [->] (create.east) to [out=0, in=180](log.west);
+        \draw [->] (create.east) to [out=0, in=90] ([xshift=-1cm] frog.north);
+
+        \draw [->] ([xshift=-1cm] log.south) to [out=270, in=0] (game.east);
+        \draw [->] (frog) to [out=180, in=0] (game.east);
+
+        \draw [<->] (log.east) -- ++(0.5,0) |- (frog.east) node[midway,right] {Mutex};
+    \end{tikzpicture}
+    \captionof{figure}{Program Framework}
+\end{center}
 
 \end{document}
