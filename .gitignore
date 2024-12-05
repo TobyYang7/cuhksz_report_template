@@ -1,7 +1,11 @@
-report.aux
-report.fdb_latexmk
-report.fls
-report.log
-report.synctex.gz
-report.toc
-report.xdv
+# 忽略 macOS 系统生成的文件
+.DS_Store
+
+# 忽略 LaTeX 编译产生的辅助文件
+*.fls
+*.log
+*.aux
+*.out
+*.toc
+*.bbl
+*.blg
